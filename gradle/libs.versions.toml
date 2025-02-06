@@ -1,0 +1,54 @@
+[versions]
+kotlin-version = "2.1.0"
+kotlinx-serialization-version = "1.8.0"
+
+koin-version = "4.1.0-Beta1"
+koin-annotation-version = "1.4.0"
+ksp-version = "2.1.0-1.0.29"
+
+ktor-version = "3.0.3"
+
+logback-version = "1.4.14"
+
+kotest-version = "5.9.1"
+
+komapper-version = "5.1.0"
+r2dbc-version = "1.0.0.RELEASE"
+
+[libraries]
+koin-ktor = { module = "io.insert-koin:koin-ktor3", version.ref = "koin-version" }
+koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin-version" }
+
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotation-version" }
+koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-annotation-version" }
+
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor-version" }
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor-version" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor-version" }
+ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktor-version" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor-version" }
+
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version" }
+
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-version" }
+
+ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor-version" }
+ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor-version" }
+
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-version" }
+kotlinx-serialization-hocon = { module = "org.jetbrains.kotlinx:kotlinx-serialization-hocon", version.ref = "kotlinx-serialization-version" }
+
+komapper-platform = { module = "org.komapper:komapper-platform", version.ref = "komapper-version" }
+
+r2dbc-h2 = { module = "io.r2dbc:r2dbc-h2", version.ref = "r2dbc-version" }
+r2dbc-pool = { module = "io.r2dbc:r2dbc-pool", version.ref = "r2dbc-version" }
+
+kotest-runner = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest-version" }
+kotest-assertion = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest-version" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }
+
+ktor = { id = "io.ktor.plugin", version.ref = "ktor-version" }
+kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-version" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-version" }
