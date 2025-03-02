@@ -3,3 +3,5 @@ plugins {
 }
 rootProject.name = "untitled"
 include("krisi-demo")
+include("card-combat")
+include("explorer")
