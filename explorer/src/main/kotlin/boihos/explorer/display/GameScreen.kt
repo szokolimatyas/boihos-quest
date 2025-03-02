@@ -3,7 +3,7 @@ package boihos.explorer.display
 import asciiPanel.AsciiPanel
 
 class GameScreen(
-    private var terminal: AsciiPanel
+    private val terminal: AsciiPanel
 ) : Screen {
     private var changeListener: ((AsciiPanel) -> Unit)? = null
 

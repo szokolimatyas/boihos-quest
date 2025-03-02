@@ -5,8 +5,7 @@ import boihos.explorer.components.Player
 import boihos.explorer.components.Position
 import boihos.explorer.components.Sprite
 import boihos.explorer.display.GameScreen
-import boihos.explorer.input.InteractionKeyListener
-import boihos.explorer.systems.InputSystem
+import boihos.explorer.input.KeyPressManager
 import boihos.explorer.systems.PlayerControlSystem
 import boihos.explorer.systems.SpriteDisplaySystem
 import boihos.explorer.systems.SpriteRefreshSystem
@@ -14,7 +13,7 @@ import com.github.quillraven.fleks.World
 import com.github.quillraven.fleks.configureWorld
 
 class Model(
-    private var interactionKeyListener: InteractionKeyListener,
+    private var interactionKeyListener: KeyPressManager,
     private var gameScreen: GameScreen
 ) {
     private val world: World
@@ -22,7 +21,6 @@ class Model(
     init {
         world = configureWorld {
             systems {
-                add(InputSystem())
                 add(PlayerControlSystem())
                 add(SpriteRefreshSystem())
                 add(SpriteDisplaySystem())
@@ -35,7 +33,7 @@ class Model(
         }
         world.entity {
             it += Player("boihos")
-            it += Input(null)
+            it += Input
             it += Position(5, 5)
             it += Sprite('@')
         }

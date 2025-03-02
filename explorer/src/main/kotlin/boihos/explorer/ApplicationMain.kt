@@ -3,7 +3,7 @@ package boihos.explorer
 import asciiPanel.AsciiPanel
 import boihos.explorer.display.GameScreen
 import boihos.explorer.display.Screen
-import boihos.explorer.input.InteractionKeyListener
+import boihos.explorer.input.KeyPressManager
 import javax.swing.JFrame
 
 //const val framesPerSecond = 60;
@@ -17,9 +17,9 @@ fun main() {
     var isRunning = true
     //TODO i also think this might be blocking ui updates, game should run on a separate thread
     while (isRunning) {
-        applicationMain.step(10f)
+        applicationMain.step(50f)
         try {
-            Thread.sleep(10)
+            Thread.sleep(50)
         } catch (e: Exception) {
             isRunning = false
         }
@@ -28,7 +28,7 @@ fun main() {
 
 class ApplicationMain: JFrame() {
     private val screen: Screen
-    private val interactionKeyListener = InteractionKeyListener()
+    private val keyPressManager = KeyPressManager()
     private val model: Model
 
     init {
@@ -36,9 +36,9 @@ class ApplicationMain: JFrame() {
         terminal.setSize(40, 40)
         screen = GameScreen(terminal)
         screen.registerChangeListener { repaint() }
-        addKeyListener(interactionKeyListener)
+        addKeyListener(keyPressManager)
         add(terminal)
-        model = Model(interactionKeyListener, screen)
+        model = Model(keyPressManager, screen)
         isResizable = false
         pack()
         repaint()
